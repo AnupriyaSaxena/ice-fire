@@ -1,30 +1,55 @@
 import React, {Component} from "react";
 import { BrowserRouter as Route, Link } from "react-router-dom";
 import './GridCard.scss';
-import BookDetails from "../../pages/BookDetails/BookDetails";
+import Pagination from "../Pagination/Pagination";
 
 class GridCard extends Component {
+    state = {
+        currentCardData: [],
+      }
+
+    getClass = (cardType) => {
+        if(cardType==="Books") {
+            return "bookCard";
+        } else if (cardType==="Characters") {
+            return "characterCard";
+        } else if (cardType==="Houses") {
+            return "houseCard";
+        }
+    }
+
+    updatePageContent = (slicedCardData) => {
+        this.setState({
+            currentCardData: slicedCardData
+        });
+    }
     
     render(){
-    const cardsData = this.props.cardsData;
+        const {cardType, cardsData} = this.props;
+        const {currentCardData} = this.state;
+
        return (
+        <React.Fragment>
         <div className="row">
-        {
-            cardsData.map((item, i) => { 
-                return(
-                    <div className="col-sm-4">
-                        <div className={`card ${this.props.color}`}>
-                            <div className="card-body">                    
-                                <h5 className="card-title">{item.name}</h5>
-                                <Link className="card-link" to={`/${i+1}`}>Books</Link>   
-                                <Route path="/:id" component={BookDetails} />            
-                            </div>                            
+            {
+                currentCardData.map((item, i) => { 
+                    return(
+                        <div className="col-sm-4">
+                            <div className={`card ${this.getClass(cardType)}`}>
+                                <div className="card-body">                    
+                                    <h5 className="card-title">{item.name}</h5>
+                                    <Link className="card-link" to={`Books/${i+1}`}>Details</Link>
+                                </div>                            
+                            </div>
                         </div>
-                    </div>
-                );
-            })  
-        }
+                    );
+                })  
+            }
         </div>
+        <div className="row justify-content-center">
+            <Pagination paginationData={cardsData} paginateAction={this.updatePageContent} cardsPerPage={5}/>
+        </div>        
+        </React.Fragment>
        ); 
     }
 }

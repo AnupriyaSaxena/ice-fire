@@ -1,7 +1,15 @@
 .card{
     margin-bottom: 25px;
 
-    &.red {
+    &.bookCard {
         border: 1px solid red;
+    }
+
+    &.characterCard {
+        border: 1px solid blue;
+    }
+
+    &.houseCard {
+        border: 1px solid green;
     }
 }
