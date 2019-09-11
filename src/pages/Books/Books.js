@@ -19,7 +19,9 @@ class Books extends Component {
         return (
             <React.Fragment>
                 <h2>Books</h2>
-                <GridCard color="red" cardsData={this.state.books}></GridCard>
+                { this.state.books.length>0 &&
+                <GridCard cardType="Books" cardsData={this.state.books}></GridCard>
+                }
             </React.Fragment>
         )
     }

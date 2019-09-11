@@ -1,7 +1,34 @@
 .card{
     margin-bottom: 25px;
 
-    &.red {
+    &.bookCard {
         border: 1px solid red;
     }
+
+    &.characterCard {
+        border: 1px solid blue;
+    }
+
+    &.houseCard {
+        border: 1px solid green;
+    }
+}
+
+.pagination {
+    margin-top: 25px;
+}
+.pagination span {
+  cursor: pointer;
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+}
+
+.pagination .active {
+  background-color: #0099FF;
+  color: white;
+  border: 1px solid #0099FF;
 }

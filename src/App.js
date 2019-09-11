@@ -26,9 +26,9 @@ function AppRouter() {
         </div>
         <div className="container-fluid">
         <Route path="/" exact component={Books} />
-        <Route path="/:id" exact component={BookDetails} />
-        <Route path="/Houses/" component={Houses} />
-        <Route path="/Character/" component={Character} />
+        <Route path="/Books/:id" exact component={BookDetails} />
+        <Route path="/Houses/" exact component={Houses} />
+        <Route path="/Character/" exact component={Character} />
         </div>
     </Router>
   );
