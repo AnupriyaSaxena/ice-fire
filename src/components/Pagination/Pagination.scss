@@ -1,0 +1,26 @@
+.pagination {
+  margin-top: 25px;
+
+  span {
+    cursor: pointer;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border: 1px solid #ddd;
+    color: green;
+
+    &.active {
+      background-color: #0099ff;
+      color: white;
+      border: 1px solid #0099ff;
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+      color: red;
+    }
+  }
+}
