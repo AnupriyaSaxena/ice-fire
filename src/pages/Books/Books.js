@@ -1,6 +1,7 @@
 import React,{Component} from "react";
 import GridCard from "../../components/GridCard/GridCard";
-import axios from 'axios';
+import cardApis from '../../apis/cardApis';
+import {getFormattedDataWithID} from "../../helpers/helpers";
 
 class Books extends Component {
     state = {
@@ -8,9 +9,9 @@ class Books extends Component {
     }
     
     componentDidMount(){
-    axios.get(`https://www.anapioficeandfire.com/api/books`)
+    cardApis.get(`/books`)
         .then(res => {
-        const books = res.data;
+        const books = res.data ? getFormattedDataWithID(res.data) : [];
         this.setState({ books });
         })
     }
