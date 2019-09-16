@@ -1,9 +1,9 @@
 
 PAGINATION
 
-This repo has the code for reusable pagination component with sample dyanamic utilization. To utilize this pagination, you can include the pagination component code in your project. Then to include the component on any of your pages/iterables, utilize it as follows:
+This repo has the code for reusable pagination component with sample dyanamic utilization. To utilize this pagination, you can include the pagination component code in your project. Then to include the component on any of your pages/iterables, import and utilize it as follows:
 
-<Pagination paginationData={cardsData} paginateAction={this.updatePageContent} cardsPerPage={5}/> 
+Pagination paginationData={cardsData} paginateAction={this.updatePageContent} cardsPerPage={5} 
 
 where the props are as follows:
 * paginationData expects an array of object. Eg. cardsData here is an array of objects which are to be iterated.
