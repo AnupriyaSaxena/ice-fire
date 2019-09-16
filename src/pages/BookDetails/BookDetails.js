@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import axios from 'axios';
+import cardApis from '../../apis/cardApis';
 
 class BookDetails extends Component { 
     state = {
@@ -8,7 +8,7 @@ class BookDetails extends Component {
     
     componentDidMount(){
         const bookId= this.props.match.params.id;
-        axios.get(`https://www.anapioficeandfire.com/api/books/${bookId}`)
+        cardApis.get(`books/${bookId}`)
         .then(res => {
             const bookDetails = res.data;
             this.setDetailsData(bookDetails);            
@@ -29,16 +29,16 @@ class BookDetails extends Component {
             if(key === "authors" || key === "characters") {
                 return {
                     label: booksLabelConfig[key],
-                    value: bookDetails[key].map((item,i) =>{ 
+                    value: bookDetails[key][0] ? bookDetails[key].map((item,i) =>{ 
                         return (
                             `${item}${bookDetails[key][i+1] ? ", " : ""}`
                         )
-                    })
+                    }) : "Not available"
                 }
             }
             return {
                 label: booksLabelConfig[key],
-                value: bookDetails[key] || "-"
+                value: bookDetails[key] || "Not available"
             }
         })
         

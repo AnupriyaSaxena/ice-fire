@@ -37,8 +37,8 @@ class GridCard extends Component {
                         <div className="col-sm-4">
                             <div className={`card ${this.getClass(cardType)}`}>
                                 <div className="card-body">                    
-                                    <h5 className="card-title">{item.name}</h5>
-                                    <Link className="card-link" to={`Books/${i+1}`}>Details</Link>
+                                    <h5 className="card-title">{item.name ? item.name : `${cardType} ${item.id}`}</h5>
+                                    <Link className="card-link" to={`/${cardType}/${item.id}`}>Details</Link>
                                 </div>                            
                             </div>
                         </div>
