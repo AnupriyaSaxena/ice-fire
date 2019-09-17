@@ -11,8 +11,11 @@ class Character extends Component {
     componentDidMount(){
     cardApis.get(`/characters`)
         .then(res => {
-        const characters = res.data ? getFormattedDataWithID(res.data) : [];
-        this.setState({ characters });
+            const characters = res.data ? getFormattedDataWithID(res.data) : [];
+            this.setState({ characters });
+        })
+        .catch((e) => {
+            console.error(e.message);
         })
     }
 

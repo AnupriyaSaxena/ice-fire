@@ -11,8 +11,11 @@ class Books extends Component {
     componentDidMount(){
     cardApis.get(`/books`)
         .then(res => {
-        const books = res.data ? getFormattedDataWithID(res.data) : [];
-        this.setState({ books });
+            const books = res.data ? getFormattedDataWithID(res.data) : [];
+            this.setState({ books });
+        })
+        .catch((e) => {
+            console.error(e.message);
         })
     }
 

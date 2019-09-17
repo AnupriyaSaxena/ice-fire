@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { BrowserRouter as Route, Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import './GridCard.scss';
 import Pagination from "../Pagination/Pagination";
 
@@ -54,4 +54,4 @@ class GridCard extends Component {
     }
 }
 
-export default GridCard;
+export default withRouter(GridCard);
