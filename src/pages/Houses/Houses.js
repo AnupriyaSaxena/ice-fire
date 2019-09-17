@@ -11,8 +11,11 @@ class Houses extends Component {
     componentDidMount(){
     cardApis.get(`/houses`)
         .then(res => {
-        const houses = res.data ? getFormattedDataWithID(res.data) : [];
-        this.setState({ houses });
+            const houses = res.data ? getFormattedDataWithID(res.data) : [];
+            this.setState({ houses });
+        })
+        .catch((e) => {
+            console.error(e.message);
         })
     }
 
